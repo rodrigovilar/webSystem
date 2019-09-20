@@ -1,0 +1,10 @@
+{
+    "team" : {
+        "id" : "com.example.team",
+        "description" : "Software team of Example.com"
+    },
+    "project" : {
+        "id" : "exampleProject1",
+        "description" : "Example project 1"
+    }
+}
