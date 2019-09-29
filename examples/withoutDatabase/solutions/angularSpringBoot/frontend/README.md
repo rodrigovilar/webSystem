@@ -1,5 +1,13 @@
 # ExampleProject1
 
+To build and deploy this project run the following commands in this folder:
+
+`docker build -t myapp .`
+
+`docker run -p 80:80 myapp`
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.2.
 
 ## Development server
