@@ -20,7 +20,7 @@ export class AppComponent {
       .subscribe(
         data => {
           console.log(data);
-          this.title = data;
+          this.title = data.message;
         },
         err => {
           console.log(err);

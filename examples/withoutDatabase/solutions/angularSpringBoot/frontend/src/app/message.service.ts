@@ -10,8 +10,6 @@ export class MessageService {
   constructor(private http: HttpClient) { }
  
   public getMessage(url: string): any {
-    return this.http.get(url).pipe(map(response => {
-        return response;
-      }));
+    return this.http.get(url);
   }
 }
