@@ -2,7 +2,7 @@
 
 In this example, a team of developers want to build a web system with frontend and backend layers. The system should return a static message because it does not have a database.
 
-It is necessary to define an identifier a a description for the development team and an identifier a a description for the project itself.
+It is necessary to define an identifier a a description for the development team and an identifier and a description for the project itself.
 
 ## Example metadata
 
