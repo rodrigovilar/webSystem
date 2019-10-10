@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MessageService } from './message.service';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -7,24 +7,12 @@ import { MessageService } from './message.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Loading...';
 
-  url = 'http://localhost/api/message';
- 
-  constructor(private api: MessageService) {
+  message: string;
+
+  constructor(service: AppService) {
+    service.messageChanged$.subscribe(
+      message => this.message = message);
   }
- 
-  ngOnInit() {
-    this.api
-      .getMessage(this.url)
-      .subscribe(
-        data => {
-          console.log(data);
-          this.title = data.message;
-        },
-        err => {
-          console.log(err);
-        }
-      );
-  }
+
 }
