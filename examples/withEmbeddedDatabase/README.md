@@ -1,4 +1,4 @@
-# Web system without database
+# Web system with embedded database
 
 In this example, a team of developers want to build a web system with frontend and backend layers. The system should implement a CRUD functionality for an entity using an embedded database, such as H2.
 
