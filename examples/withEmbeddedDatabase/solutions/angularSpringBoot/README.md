@@ -19,7 +19,7 @@
 11. Create a [Docker file](backend/Dockerfile) for backend using two stages:
  - The first to build the Spring Boot app in a Maven image
  - The second to run the backend in a JRE image
-12. Add JPA, JDBC and PostgreSQL dependencies in [Maven configuration file](backend/pom.xml)
+12. Add JPA, JDBC and H2 dependencies in [Maven configuration file](backend/pom.xml)
 13. Add H2 in [Application properties](backend/src/main/resources/application.properties)
 14. Create a [Home component](frontend/src/app/home) to draw the app menu
 15. Create an [App service](frontend/src/app/app.service.ts) to handle app notification messages

@@ -1,4 +1,4 @@
-# Solution for Web systems with DBMS (PostgreSQL) using Angular and Spring Boot
+# Solution for Web systems with database management system using Angular and Spring Boot
 
 1. Open https://start.spring.io/
 2. Fill the form with the following metadata:
@@ -10,8 +10,8 @@
 4. Extract the zip file 
 5. Copy project code to [this folder](backend)
 6. Run mvn springboot:run or the [Application main method](backend/src/main/java/com/example/team/exampleProject3/ExampleProject3Application.java)
-7. Run ng generate example-project1
-8. Rename example-project1 folder to [frontend](frontend)
+7. Run ng generate example-project3
+8. Rename example-project3 folder to [frontend](frontend)
 9. Create a [Docker file](frontend/Dockerfile) for frontend using two stages:
  - The first to build the production Angular code in a Node image
  - The second to run the frontend using Nginx
@@ -19,10 +19,23 @@
 11. Create a [Docker file](backend/Dockerfile) for backend using two stages:
  - The first to build the Spring Boot app in a Maven image
  - The second to run the backend in a JRE image
-12. Create a [Hello world controller](backend/src/main/java/com/example/team/exampleProject3/HelloWorldController.java)
-13. Create a [DTO](backend/src/main/java/com/example/team/exampleProject3/MessageDTO.java) to produce the JSON backend response body 
-14. Create a [frontend service](frontend/src/app/message.service.ts) to invoke backend
-15. Update [Nginx configuration](frontend/nginx/default.conf) to proxy all /api requests to backend
-16. Create a [docker compose file](docker-compose.yml) to invoke frontend and backend Dockerfiles and connect the containers 
-17. Run docker-compose up to build and deploy the web system
-
+12. Add JPA, JDBC and PostgreSQL dependencies in [Maven configuration file](backend/pom.xml)
+13. Add PostgreSQL in [Application properties](backend/src/main/resources/application.properties)
+14. Create a [Home component](frontend/src/app/home) to draw the app menu
+15. Create an [App service](frontend/src/app/app.service.ts) to handle app notification messages
+16. Implement CRUD layers and modules:
+ - Data Access: [Entity model](backend/src/main/java/com/example/team/exampleproject3/model/Book.java) and [repository](backend/src/main/java/com/example/team/exampleproject3/repository/BookRepository.java)
+ - Service: [Entity service](backend/src/main/java/com/example/team/exampleproject3/service/BookService.java) 
+ - Controller: [Entity Controller](backend/src/main/java/com/example/team/exampleproject3/controller/BookController.java) and [Data Transfer Object](backend/src/main/java/com/example/team/exampleproject3/controller/BookDTO.java)
+ - Global classes: [Util classes](backend/src/main/java/com/example/team/exampleproject3/util), [Controller utils](backend/src/main/java/com/example/team/exampleproject3/controller/RestMessageDTO.java) and [Business exception](backend/src/main/java/com/example/team/exampleproject3/service/BusinessException.java)
+17. Implement frontend elements for CRUD:
+ - Set up a [lazy load module route](frontend/src/app/app-routing.module.ts) and implement [the module](frontend/src/app/book/book.module.ts)
+ - [Entity service](frontend/src/app/book/book.service.ts)
+ - [Entity DTO](frontend/src/app/book/book.ts)
+ - [Listing component](frontend/src/app/book/book-list)
+ - [Editing component](frontend/src/app/book/book-edit)
+ - [Viewing component](frontend/src/app/book/book-view)
+ - Util classes for [routing](frontend/src/app/routes.util.ts) and [URLs](frontend/src/app/app.urls.ts)
+18. Update [Nginx configuration](frontend/nginx/default.conf) to proxy all /api requests to backend
+19. Create a [docker compose file](docker-compose.yml) to invoke frontend and backend Dockerfiles and connect these containers with PostgreSQL
+20. Run docker-compose up to build and deploy the web system
