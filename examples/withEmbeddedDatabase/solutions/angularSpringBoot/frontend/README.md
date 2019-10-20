@@ -1,4 +1,4 @@
-# ExampleProject1
+# ExampleProject2
 
 To build and deploy this project run the following commands in this folder:
 
