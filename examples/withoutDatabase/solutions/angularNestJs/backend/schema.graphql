@@ -1,0 +1,15 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+}
+
+type Message {
+    content: String
+    id: Int
+}
+
+type Query {
+    getMessages: [Message]
+    message(id: ID!): Message
+}
