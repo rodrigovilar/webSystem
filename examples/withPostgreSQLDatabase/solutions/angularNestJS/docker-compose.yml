@@ -1,0 +1,23 @@
+version: '3.3'
+services:
+  database:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "webSystem"
+    ports:
+      - "15432:5432"
+    volumes:
+      - /home/Docker-Compose/PostgreSQL:/var/lib/postgresql/data
+    networks:
+      - postgres-compose-network
+  back:
+    build: backend/.
+    restart: always
+    depends_on:
+      - database
+  front:
+    build: frontend/.
+    ports:
+      - "80:80"
+    depends_on:
+      - back
