@@ -1,19 +1,18 @@
 version: '3.3'
 services:
   database:
-    container_name: webSystem_database
+    container_name: database
     image: postgres
     environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "postpass"
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postpass
+      POSTGRES_DB: websystem
     ports:
-      - "15432:5432"
+      - "5432:5432"
     volumes:
-      - /home/Docker-Compose/PostgreSQL:/var/lib/postgresql/data
-    networks:
-      - postgres-compose-network
+      - ./postgres-data:/var/lib/postgresql/data
   back:
-    container_name: webSystem_backend
+    container_name: back
     build: backend/.
     restart: always
     ports:
@@ -21,12 +20,8 @@ services:
     depends_on:
       - database
   front:
-    container_name: webSystem_frontend
     build: frontend/.
     ports:
       - "80:80"
     depends_on:
       - back
-networks:
-  postgres-compose-network:
-      driver: bridge
