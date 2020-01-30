@@ -8,8 +8,8 @@ export const databaseProviders = [
         useFactory: async () => {
             const sequelize = new Sequelize({
                 dialect: 'postgres',
-                host: 'localhost',
-                port: 5432,
+                host: 'host.docker.internal',
+                port: 15432,
                 username: 'postgres',
                 password: 'postpass',
                 database: 'webSystem',

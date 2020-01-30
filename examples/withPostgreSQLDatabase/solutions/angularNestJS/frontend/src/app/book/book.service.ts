@@ -31,7 +31,7 @@ const updateItemQuery = gql`mutation updateItem($id: ID!, $title: String!, $auth
   updateItem(input: {id: $id, title: $title, author: $author}){
     id,
     title,
-    author
+    author  
   }
 }`;
 
