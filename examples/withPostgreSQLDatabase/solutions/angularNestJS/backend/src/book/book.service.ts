@@ -20,7 +20,7 @@ export class BookService {
     }
 
     update(data): Promise<Book> {
-        this.bookRepository.update<Book>(data, { where: {id: data.id}, returning: true  });
+        this.bookRepository.update<Book>(data, { where: {id: data.id}});
         return this.bookRepository.findOne({where: {id: data.id}});
     }
 

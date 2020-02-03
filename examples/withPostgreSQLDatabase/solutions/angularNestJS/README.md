@@ -10,16 +10,15 @@
 6. Create a [Nginx configuration file](frontend/nginx/default.conf)
 7. Create a [Docker file](backend/Dockerfile) for backend using one stage:
  - The first to build the Nest.JS app in a Node image
-8. Add GraphQL and in-memory-db dependencies in [backend folder](backend) using:
-- `npm i --save @nestjs/graphql apollo-server-express graphql-tools graphql @nestjs-addons/in-memory-db`
+8. Add GraphQL, PostgreSQL and Sequelize dependencies in [backend folder](backend) using:
+- `npm i --save @nestjs/graphql apollo-server-express graphql-tools graphql sequelize sequelize-typescript pg`
 
 9. Create a [Home component](frontend/src/app/home) to draw the app menu
 10. Create an [App service](frontend/src/app/app.service.ts) to handle app notification messages
 11. Implement CRUD layers and modules:
- - Data Access: [Entity model](backend/src/main/java/com/example/team/exampleproject2/model/Book.java) and [repository](backend/src/main/java/com/example/team/exampleproject2/repository/BookRepository.java)
- - Service: [Entity service](backend/src/main/java/com/example/team/exampleproject2/service/BookService.java) 
- - Controller: [Entity Controller](backend/src/main/java/com/example/team/exampleproject2/controller/BookController.java) and [Data Transfer Object](backend/src/main/java/com/example/team/exampleproject2/controller/BookDTO.java)
- - Global classes: [Util classes](backend/src/main/java/com/example/team/exampleproject2/util), [Controller utils](backend/src/main/java/com/example/team/exampleproject2/controller/RestMessageDTO.java) and [Business exception](backend/src/main/java/com/example/team/exampleproject2/service/BusinessException.java)
+ - Data Access: [Entity model](backend/src/book/model/book.entity.ts)
+ - Service: [Entity service](backend/src/book/book.service.ts) 
+ - Resolver: [Entity resolver](backend/src/book/book.resolver.ts), [Object Type](backend/src/book/dto/book.dto.ts), [Object Create Input](backend/src/book/input/createBook.input.ts) and [Object Update Input](backend/src/book/input/updateBook.input.ts)
 12. Implement frontend elements for CRUD:
  - Set up a [lazy load module route](frontend/src/app/app-routing.module.ts) and implement [the module](frontend/src/app/book/book.module.ts)
  - [Entity service](frontend/src/app/book/book.service.ts)

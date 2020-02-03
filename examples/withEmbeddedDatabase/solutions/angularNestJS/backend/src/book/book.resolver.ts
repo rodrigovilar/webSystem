@@ -1,9 +1,9 @@
 import {Args, Mutation, Query, Resolver} from '@nestjs/graphql';
 import { InMemoryDBService} from '@nestjs-addons/in-memory-db';
-import { BookEntity } from './interfaces/book.interface';
+import { BookEntity } from './model/book.interface';
 import { BookType } from './dto/book.dto';
-import { CreateBookInput } from './createBook.input';
-import { UpdateBookInput } from './updateBook.input';
+import { CreateBookInput } from './dto/createBook.input';
+import { UpdateBookInput } from './dto/updateBook.input';
 
 @Resolver('Book')
 export class BookResolver {
