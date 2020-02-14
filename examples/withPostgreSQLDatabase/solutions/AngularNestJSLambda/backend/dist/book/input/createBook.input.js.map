@@ -1,0 +1,1 @@
+{"version":3,"file":"createBook.input.js","sourceRoot":"","sources":["../../../src/book/input/createBook.input.ts"],"names":[],"mappings":";;;;;;;;;;;AAAA,+CAA+C;AAG/C,IAAa,eAAe,GAA5B,MAAa,eAAe;CAK3B,CAAA;AAHG;IADC,oBAAK,CAAC,EAAC,QAAQ,EAAE,IAAI,EAAC,CAAC;;8CACD;AAEvB;IADC,oBAAK,CAAC,EAAC,QAAQ,EAAE,IAAI,EAAC,CAAC;;+CACA;AAJf,eAAe;IAD3B,wBAAS,EAAE;GACC,eAAe,CAK3B;AALY,0CAAe"}

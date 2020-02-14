@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
-import { BookService } from './book.service';
 import { BookResolver } from './book.resolver';
-import {InMemoryDBModule} from "@nestjs-addons/in-memory-db";
+import {InMemoryDBModule} from '@nestjs-addons/in-memory-db';
 
 @Module({
   imports: [InMemoryDBModule.forRoot({})],
-  providers: [BookService, BookResolver],
+  providers: [BookResolver],
 })
 export class BookModule {}
