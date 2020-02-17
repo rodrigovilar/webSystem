@@ -1,0 +1,11 @@
+version: '3.3'
+services:
+  back:
+    build: backend/.
+    restart: always
+  front:
+    build: frontend/.
+    ports:
+      - "80:80"
+    depends_on:
+      - back

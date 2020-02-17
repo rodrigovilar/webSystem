@@ -80,7 +80,7 @@ class BookController {
   async destroy({ params }) {
     const book = await Book.findOrFail(params.id)
     await book.delete()
-    return `Livro ${book.title}, excluído com sucesso!`
+    return book
   }
 }
 
