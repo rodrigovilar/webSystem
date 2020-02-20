@@ -11,7 +11,7 @@ import {FetchResult} from 'apollo-link';
 
 const allBooksQuery = gql`
 query{
-  getAll {
+  getBooks {
     id
     title
     author
@@ -20,7 +20,7 @@ query{
 `;
 
 const getOneQuery = gql`query getBookById($bookId: Float!){
-  getOne(id: $bookId) {
+  getBook(id: $bookId) {
     id
     title
     author
@@ -28,7 +28,7 @@ const getOneQuery = gql`query getBookById($bookId: Float!){
 }`;
 
 const updateItemQuery = gql`mutation updateItem($id: ID!, $title: String!, $author: String!){
-  updateItem(input: {id: $id, title: $title, author: $author}){
+  updateBook(input: {id: $id, title: $title, author: $author}){
     id,
     title,
     author
@@ -36,7 +36,7 @@ const updateItemQuery = gql`mutation updateItem($id: ID!, $title: String!, $auth
 }`;
 
 const addItemQuery = gql`mutation createItem($title: String!, $author: String!){
-  createItem(input: {title: $title, author: $author}){
+  createBook(input: {title: $title, author: $author}){
     id
     title
     author
@@ -44,7 +44,7 @@ const addItemQuery = gql`mutation createItem($title: String!, $author: String!){
 }`;
 
 const deleteItemQuery = gql`mutation deleteItem($id: Float!){
-  deleteItem(id: $id)
+  deleteBook(id: $id)
   {
     id
   }

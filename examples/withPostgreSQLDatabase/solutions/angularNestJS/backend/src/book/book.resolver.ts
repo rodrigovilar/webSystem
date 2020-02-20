@@ -10,17 +10,17 @@ export class BookResolver {
     constructor(private readonly bookService: BookService) {}
 
     @Query(() => [BookType])
-    async getAll(): Promise<BookType[]> {
+    async getBooks(): Promise<BookType[]> {
         return await this.bookService.findAll();
     }
 
     @Query(() => BookType)
-    async getOne(@Args('id') id: number) {
+    async getBook(@Args('id') id: number) {
         return await this.bookService.find(id);
     }
 
     @Mutation(() => BookType)
-    async createItem(@Args('input') input: CreateBookInput): Promise<Book> {
+    async createBook(@Args('input') input: CreateBookInput): Promise<Book> {
         const book = new Book();
         book.author = input.author;
         book.title = input.title;
@@ -28,18 +28,13 @@ export class BookResolver {
     }
 
     @Mutation(() => BookType)
-    async updateItem(
+    async updateBook(
         @Args('input') input: UpdateBookInput): Promise<Book> {
         return await this.bookService.update(input);
     }
 
     @Mutation(() => BookType)
-    async deleteItem(@Args('id') id: number): Promise<number> {
+    async deleteBook(@Args('id') id: number): Promise<number> {
         return await this.bookService.delete(id);
-    }
-
-    @Query(() => String)
-    async hello() {
-        return 'hello';
     }
 }
