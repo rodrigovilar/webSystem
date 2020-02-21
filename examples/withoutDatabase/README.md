@@ -14,3 +14,4 @@ The following metadata contains all data necessary to generate solutions code.
 ## Solutions 
 
 - [With Angular and Spring Boot](solutions/angularSpringBoot)
+- [With Angular and Nest.js](solutions/angularNestJs)
