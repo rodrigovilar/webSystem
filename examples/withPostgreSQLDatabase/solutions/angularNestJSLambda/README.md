@@ -1,6 +1,6 @@
-# Solution for Web systems with embedded database using Angular and Nest.js
+# Solution for Web systems with PostgreSQL database using Angular, Nest.js and AWS Lambda
 
-1. To get install, you need install Nest CLI using ```npm i -g @nestjs/cli```
+1. To get install, you need install Nest CLI using ```npm i -g @nestjs/cli``` and Serverless CLI using ```npm i -g serverless```
 2. After, using ```nest new backend``` to  create a new project directory, [this folder](backend)
 3. Run ng generate example-project2
 4. Rename example-project2 folder to [frontend](frontend)
@@ -19,6 +19,7 @@
  - Data Access: [Entity model](backend/src/book/model/book.entity.ts)
  - Service: [Entity service](backend/src/book/book.service.ts) 
  - Resolver: [Entity resolver](backend/src/book/book.resolver.ts), [Object Type](backend/src/book/dto/book.dto.ts), [Object Create Input](backend/src/book/input/createBook.input.ts) and [Object Update Input](backend/src/book/input/updateBook.input.ts)
+ - Handler: [Lambda Handler](backend/src/serverless.ts)
 12. Implement frontend elements for CRUD:
  - Set up a [lazy load module route](frontend/src/app/app-routing.module.ts) and implement [the module](frontend/src/app/book/book.module.ts)
  - [Entity service](frontend/src/app/book/book.service.ts)
@@ -29,4 +30,7 @@
  - Util classes for [routing](frontend/src/app/routes.util.ts) and [URLs](frontend/src/app/app.urls.ts)
 13. Update [Nginx configuration](frontend/nginx/default.conf) to proxy all /api requests to backend
 14. Create a [docker compose file](docker-compose.yml) to invoke frontend and backend Dockerfiles and connect these containers
-15. Run docker-compose up to build and deploy the web system
+15. Run ```serverless``` in project root directory to create a project named ```backend```
+16. Modify [serverless.yml](backend/serverless.yml) to create a function using the handler. 
+17. Run ```serverless deploy``` in [backend folder](backend) and change the API URL on [graphql.module.ts](frontend/src/app/graphql.module.ts)
+18. Run docker-compose up to build and deploy the web system

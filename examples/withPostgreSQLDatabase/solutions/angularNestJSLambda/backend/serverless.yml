@@ -1,6 +1,5 @@
 service: nestjs-graphql-serverless-postgresql
 app: angular-nest-js-prisma-dev
-org: niknicius
 
 provider:
   name: aws
@@ -8,11 +7,9 @@ provider:
   stage: dev
   vpc:
     securityGroupIds:
-      - sg-3699951e
+      # Config your security groups ids here
     subnetIds:
-      - subnet-12d6051c
-      - subnet-18c7ea26
-      - subnet-1b59407c
+      # Config your subnets ids here
   profile: default # Config your AWS Profile
   environment: # Service wide environment variables
     NODE_ENV: production
