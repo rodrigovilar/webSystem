@@ -10,22 +10,22 @@ export class BookResolver {
     constructor(private readonly bookService: InMemoryDBService<BookEntity>) {}
 
     @Query(() => [BookType])
-    async getAll(): Promise<BookType[]> {
+    async getBooks(): Promise<BookType[]> {
         return this.bookService.getAll();
     }
 
     @Query(() => BookType)
-    async getOne(@Args('id') id: number) {
+    async getBook(@Args('id') id: number) {
         return this.bookService.get(id);
     }
 
     @Mutation(() => BookType)
-    async createItem(@Args('input') input: CreateBookInput): Promise<CreateBookInput> {
+    async createBook(@Args('input') input: CreateBookInput): Promise<CreateBookInput> {
         return this.bookService.create(input);
     }
 
     @Mutation(() => BookType)
-    async updateItem(
+    async updateBook(
         @Args('input') input: UpdateBookInput,
     ) {
         this.bookService.update(input);
@@ -33,14 +33,9 @@ export class BookResolver {
     }
 
     @Mutation(() => BookType)
-    async deleteItem(@Args('id') id: number): Promise<UpdateBookInput> {
+    async deleteBook(@Args('id') id: number): Promise<UpdateBookInput> {
         const book = this.bookService.get(id);
         this.bookService.delete(id);
         return book;
-    }
-
-    @Query(() => String)
-    async hello() {
-        return 'hello';
     }
 }
