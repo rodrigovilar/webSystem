@@ -1,0 +1,54 @@
+service: nestjs-graphql-serverless-postgresql
+app: angular-nest-js-prisma-dev
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  vpc:
+    securityGroupIds:
+      # Config your security groups ids here
+    subnetIds:
+      # Config your subnets ids here
+  profile: default # Config your AWS Profile
+  environment: # Service wide environment variables
+    NODE_ENV: production
+
+plugins:
+  - serverless-offline
+
+package:
+  exclude:
+    - .git/**
+    - src/**
+    - test/**
+    - nodemon.json
+    - README.md
+  excludeDevDependencies: true
+
+functions:
+  index:
+    handler: dist/serverless.handler
+    events:
+      - http:
+          cors: true
+          path: '/{proxy+}'
+          method: any
+
+resources:
+  Resources:
+    AWSLambdaVPCAccessExecutionRole:
+      Type: AWS::IAM::ManagedPolicy
+      Properties:
+        Description: Creating policy for vpc connetion.
+        Roles:
+          - {"Ref" : "IamRoleLambdaExecution"}
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - ec2:CreateNetworkInterface
+                - ec2:DescribeNetworkInterfaces
+                - ec2:DeleteNetworkInterface
+              Resource: "*"
