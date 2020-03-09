@@ -1,0 +1,14 @@
+import {Args, Mutation, Query, Resolver} from '@nestjs/graphql';
+import { {{Entity singular name}} } from './model/{{Entity singular name}}.entity';
+import { {{Entity singular name}}Type } from './dto/{{Entity name}}.dto';
+import { {{Entity singular name}}Service } from './{{Entity name}}.service';
+
+@Resolver('{{Entity singular name}}')
+export class {{Entity singular name}}Resolver {
+    constructor(private readonly {{Entity  name}}Service: {{Entity singular name}}Service) {}
+
+    {{Resolver methods}}
+
+}
+
+

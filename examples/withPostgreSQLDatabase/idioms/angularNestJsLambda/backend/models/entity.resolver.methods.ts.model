@@ -1,0 +1,26 @@
+@Query(() => [{{Entity singular name}}Type])
+async getAll{{Entity singular name}}(): Promise<{{Entity singular name}}Type[]> {
+    return await this.{{Entity singular name}}Service.findAll();
+}
+
+@Query(() => {{Entity singular name}}Type)
+async getOne{{Entity singular name}}(@Args('id') id: number) {
+    return await this.{{Entity name}}Service.find(id);
+}
+
+@Mutation(() => {{Entity singular name}}Type)
+async create{{Entity singular name}}(@Args('input') input: Create{{Entity singular name}}Input): Promise<{{Entity singular name}}> {
+    {{Entity Object}}
+    return await this.bookService.create(book);
+}
+
+@Mutation(() => {{Entity singular name}}Type)
+async update{{Entity singular name}}(
+    @Args('input') input: Update{{Entity singular name}}Input): Promise<{{Entity singular name}}> {
+    return await this.{{Entity name}}Service.update(input);
+}
+
+@Mutation(() => {{Entity singular name}})
+async delete{{Entity singular name}}(@Args('id') id: number): Promise<number> {
+    return await this.{{Entity name}}Service.delete(id);
+}

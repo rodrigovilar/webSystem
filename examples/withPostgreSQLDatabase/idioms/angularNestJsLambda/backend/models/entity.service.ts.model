@@ -1,0 +1,10 @@
+import {Inject, Injectable} from '@nestjs/common';
+import {InjectRepository} from '@nestjs/typeorm';
+import { {{Entity singular name}} } from './model/{{Entity singular name}}.entity';
+
+@Injectable()
+export class {{[Entity singular name}}Service {
+    constructor(@Inject('{{Entity singular name}}_REPOSITORY') private readonly {{Entity singular name}}Repository: typeof {{Entity singular name}}) {}
+
+    {{Service methods}}
+}

@@ -1,0 +1,11 @@
+import { Module } from '@nestjs/common';
+import { {{Entity singular name}}Module } from './{{Entity name}}.module';
+import { {{Entity singular name}}Service } from './{{Entity name}}.service';
+import { {{Entity singular name}}Resolver } from './{{Entity name}}.resolver';
+import { {{Entity name}}Providers } from './{{Entity name}}.providers';
+
+@Module({
+    imports: [{{Entity singular name}}Module],
+    providers: [{{Entity singular name}}Service, {{Entity singular name}}Resolver, ...{{Entity name}}Providers],
+})
+export class {{Entity singular name}}HttpModule {}

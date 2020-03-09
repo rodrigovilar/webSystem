@@ -1,0 +1,10 @@
+import { Module } from '@nestjs/common';
+
+{{Entity module imports files}}
+
+@Module({
+  imports: [{{Entity module imports}}],
+  exports: [{{Entity module exports}}],
+  providers: [{{Entity module providers}}]
+})
+export class {{Entity singular name}}Module {}
