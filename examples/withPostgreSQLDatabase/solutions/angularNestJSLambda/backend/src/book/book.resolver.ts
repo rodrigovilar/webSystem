@@ -37,5 +37,4 @@ export class BookResolver {
     async deleteItem(@Args('id') id: number): Promise<number> {
         return await this.bookService.delete(id);
     }
-
 }
