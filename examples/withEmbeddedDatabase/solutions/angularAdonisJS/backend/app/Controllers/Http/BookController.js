@@ -9,6 +9,8 @@ const Book = use('App/Models/Book')
 /**
  * Resourceful controller for interacting with books
  */
+
+// TODO: atualizar para o uso com formularios
 class BookController {
   /**
    * Show a list of all books.

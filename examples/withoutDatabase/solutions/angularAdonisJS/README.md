@@ -21,13 +21,13 @@ Check the installation
 
 `$ adonis --version`
 
-3. Crie uma nova pasta, entre nela e create a new adonis project only api
+3. Create a [new folder](backend/README.md), enter it and create a new adonis project only api
 
 `$ mkdir backend && cd backend` 
 
 `$ adonis new projectName --api-only`
 
-4. Crie um novo controlador do tipo HTTP
+4. Create a new HTTP-type controller
 
 `$ adonis make:controller controllerName --type http`
 

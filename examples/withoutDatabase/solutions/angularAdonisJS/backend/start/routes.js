@@ -15,5 +15,6 @@
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
+const baseUrl = '/api/message'
 
-Route.get('/message', 'HelloWorldController.message')
+Route.get(baseUrl, 'HelloWorldController.getMessage')

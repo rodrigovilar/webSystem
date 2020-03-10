@@ -9,11 +9,11 @@ import { MessageService } from './message.service';
 export class AppComponent {
   title = 'Loading...';
 
-  url = 'http://localhost/api/message';
- 
+  url = 'http://localhost:3333/api/message';
+
   constructor(private api: MessageService) {
   }
- 
+
   ngOnInit() {
     this.api
       .getMessage(this.url)

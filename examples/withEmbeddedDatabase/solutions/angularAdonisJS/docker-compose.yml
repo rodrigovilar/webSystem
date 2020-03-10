@@ -1,11 +1,33 @@
-version: '3.3'
+version: '3'
+
 services:
+  
   back:
     build: backend/.
     restart: always
+    ports:
+      - "3333:3333"
+    volumes: 
+      - /backend:/usr/app
+    command: npm start
+  
   front:
     build: frontend/.
     ports:
       - "80:80"
     depends_on:
       - back
+  
+  database:
+    container_name: sqlite
+    image: nouchka/sqlite3:latest
+    environment: 
+      DB_CONNECTION: sqlite
+      DB_USER: sqlite
+      DB_PASSWORD: 123123
+      DB_DATABASE: adonis
+    ports: 
+      - "3306:3306"
+    volumes: 
+      - ./backend/database/:/usr/app/database/
+    

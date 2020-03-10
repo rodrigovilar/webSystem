@@ -2,8 +2,10 @@
 
 class HelloWorldController {
 
-  message() {
-    return 'Example project 1'
+  message = 'Example project 1'
+
+  getMessage() {
+    return this.message
   }
 }
 

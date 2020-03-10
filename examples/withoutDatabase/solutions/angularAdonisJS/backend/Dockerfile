@@ -1,14 +1,12 @@
-# FIXME
-FROM node:latest
+FROM node:12.16.1-buster
 
-WORKDIR . /app
+WORKDIR /home/app
 
-COPY package*.json ./
+COPY package.json .
 
 RUN npm install
+# --silent --progress=false
 
 COPY . .
-
-EXPOSE 8080
 
 CMD [ "npm", "start" ]
