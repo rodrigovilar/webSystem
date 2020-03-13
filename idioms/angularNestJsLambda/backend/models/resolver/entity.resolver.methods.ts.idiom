@@ -10,7 +10,6 @@ async getOne{{Entity singular name}}(@Args('id') id: number) {
 
 @Mutation(() => {{Entity singular name}}Type)
 async create{{Entity singular name}}(@Args('input') input: Create{{Entity singular name}}Input): Promise<{{Entity singular name}}> {
-
     return await this.bookService.create(book);
 }
 

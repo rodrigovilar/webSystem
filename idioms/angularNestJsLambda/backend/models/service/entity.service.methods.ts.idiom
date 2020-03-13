@@ -7,7 +7,7 @@ find{{Entity singular name}}(id): Promise<{{Entity singular name}}> {
 }
 
 create{{Entity singular name}}(data): Promise<{{Entity singular name}}> {
-    return data.save();
+    return this.{{Entity singular name}}Repository.create(data);
 }
 
 update{{Entity singular name}}(data): Promise<{{Entity singular name}}> {
