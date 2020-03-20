@@ -1,14 +1,17 @@
+org: niknicius
+service: express
+app: webserver
 
 plugins: # List of plugins of use on application
   - serverless-offline # Get your serverless configuration and run the server local
   - serverless-plugin-typescript-express # Help us with configuration typescript on serverless
 
-# Project name on the infrastructure created
-service: node-typescript-serverless
+package:
+  excludeDevDependencies: false
 
 provider:
   name: aws # Provider name, where the infrastructure has be created
-  runtime: nodejs8.10 # The node version where the lambda functions going to run
+  runtime: nodejs12.x # The node version where the lambda functions going to run
   stage: dev # Control the environment of application
   region: us-east-1 # Default region where the lambda functions running
 
@@ -18,5 +21,5 @@ functions: # The array with definitions of lambda functions of the your applicat
     events:
       - http:
           cors: true
-          path: '/graphql'
+          path: '/{proxy+}'
           method: any
