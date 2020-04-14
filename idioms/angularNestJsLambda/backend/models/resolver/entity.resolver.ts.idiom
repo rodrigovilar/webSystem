@@ -19,7 +19,7 @@ export class {{Entity singular name}}Resolver {
 
     @Mutation(() => {{Entity singular name}}Type)
     async create{{Entity singular name}}(@Args('input') input: Create{{Entity singular name}}Input): Promise<{{Entity singular name}}> {
-        return await this.bookService.create(book);
+        return await this.{{Entity name}}Service.create(input);
     }
 
     @Mutation(() => {{Entity singular name}}Type)
