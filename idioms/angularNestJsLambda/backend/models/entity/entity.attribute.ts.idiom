@@ -1,0 +1,3 @@
+{{For each Attribute decorators - ./options/*.*.idiom}}
+@Column
+{{Attribute name}}: {{Attribute type}};
