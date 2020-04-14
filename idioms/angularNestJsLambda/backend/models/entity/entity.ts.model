@@ -1,8 +1,0 @@
-import {Column, DataType, Model, Table} from 'sequelize-typescript';
-
-@Table
-export class {{Entity singular name}} extends Model<{{Entity singular name}}> {
-
-    {{Entity attributes}}
-
-}

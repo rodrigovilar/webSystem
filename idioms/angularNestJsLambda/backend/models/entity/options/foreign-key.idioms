@@ -1,1 +1,0 @@
-@ForeignKey(() => {{Entity Name}})

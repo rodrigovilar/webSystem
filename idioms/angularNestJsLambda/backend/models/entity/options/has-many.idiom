@@ -1,1 +1,0 @@
-@HasMany(() => {{Entity name}})
