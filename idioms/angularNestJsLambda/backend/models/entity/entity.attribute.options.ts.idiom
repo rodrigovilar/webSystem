@@ -1,0 +1,4 @@
+@Column({
+   {{Attribute column options}}
+  })
+{{Attribute name}}: {{Attribute type}};

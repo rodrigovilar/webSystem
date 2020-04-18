@@ -1,0 +1,2 @@
+@Field({{{Input field options}}})
+readonly {{Input field name}}: {{Input field type}}
