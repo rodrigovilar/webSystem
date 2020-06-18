@@ -1,0 +1,25 @@
+org: niknicius
+service: express
+app: webserver
+
+plugins: # List of plugins of use on application
+  - serverless-offline # Get your serverless configuration and run the server local
+  - serverless-plugin-typescript-express # Help us with configuration typescript on serverless
+
+package:
+  excludeDevDependencies: false
+
+provider:
+  name: aws # Provider name, where the infrastructure has be created
+  runtime: nodejs12.x # The node version where the lambda functions going to run
+  stage: dev # Control the environment of application
+  region: us-east-1 # Default region where the lambda functions running
+
+functions: # The array with definitions of lambda functions of the your application
+  getUsers: # Lambda function name
+    handler: dist/handler.handler # The function name mapped of the application
+    events:
+      - http:
+          cors: true
+          path: "/{proxy+}"
+          method: any
