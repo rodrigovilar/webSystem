@@ -22,4 +22,5 @@ functions: # The array with definitions of lambda functions of the your applicat
       - http:
           cors: true
           path: '/{proxy+}'
-          method: any
+          method: any      
+      

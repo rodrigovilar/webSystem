@@ -1,11 +1,26 @@
-import {sequelize} from './database/sequelize';
-import {Book} from './models/book/model/book.entity';
-import app from './app';
+import { ApolloServer } from "apollo-server-express";
+import Express from "express";
+import "reflect-metadata";
+import { buildSchema } from "type-graphql";
+import {sequelize} from './sequelize';
+import {BookResolver} from './resolvers/book.resolver';
 
-const server = app.listen(3000, async () => {
+const main = async () => {
+    const schema = await buildSchema({
+        resolvers: [BookResolver],
+        emitSchemaFile: true,
+        validate: false,
+    });
 
-    // tslint:disable-next-line:no-console
-    console.log("App is running on port 3000");
-});
+    sequelize.sync();
 
-export default server;
+    const server = new ApolloServer({schema});
+    const app = Express();
+    server.applyMiddleware({app});
+    app.listen({ port: 3333 }, () =>
+        console.log(`🚀 Server ready and listening at ==> http://localhost:3333${server.graphqlPath}`))
+};
+
+main().catch((error)=>{
+    console.log(error, 'error');
+})
