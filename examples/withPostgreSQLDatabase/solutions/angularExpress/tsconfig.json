@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-      "experimentalDecorators": true,
+    "experimentalDecorators": true,
     "module": "commonjs",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -14,12 +14,8 @@
     "strict": false,
     "typeRoots": ["./node_modules/*/node_modules/@types/"],
     "paths": {
-      "*": [
-        "node_modules/*"
-      ]
+      "*": ["node_modules/*"]
     }
   },
-  "include": [
-    "src/**/*"
-  ]
+  "include": ["src/**/*"]
 }
