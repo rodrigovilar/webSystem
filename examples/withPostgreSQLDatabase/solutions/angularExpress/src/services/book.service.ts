@@ -16,10 +16,9 @@ export class BookService {
     return Book.create(data);
   }
 
-  async update(id: number, data: BookInput): Promise<number> {
-    return Book.update(data, { where: { id } }).then((result) => {
-      return result[0];
-    });
+  async update(id: number, data: BookInput): Promise<Book> {
+    Book.update(data, { where: { id } });
+    return this.getOne(id);
   }
 
   async delete(id: number): Promise<number> {

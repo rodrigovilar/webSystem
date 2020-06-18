@@ -13,7 +13,7 @@ export class BookResolver {
   }
 
   @Query(() => Book)
-  async findOneBooks(@Arg("id") id: number): Promise<Book> {
+  async findOneBook(@Arg("id") id: number): Promise<Book> {
     return this.bookService.getOne(id);
   }
 
@@ -27,11 +27,11 @@ export class BookResolver {
     return this.bookService.insert(data);
   }
 
-  @Mutation(() => [Number])
+  @Mutation(() => Book)
   async updateBook(
     @Arg("id") id: number,
     @Arg("data") data: BookInput
-  ): Promise<number> {
+  ): Promise<Book> {
     return this.bookService.update(id, data);
   }
 
