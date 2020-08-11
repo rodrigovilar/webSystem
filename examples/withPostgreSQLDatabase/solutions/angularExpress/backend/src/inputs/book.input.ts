@@ -4,6 +4,10 @@ import { RecursivePartial } from "sequelize-typescript/dist/shared/types";
 
 @InputType()
 export class BookInput implements RecursivePartial<Book> {
+
+  @Field({nullable: true})
+  id: number
+
   @Field()
   title: string;
 

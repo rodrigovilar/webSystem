@@ -1,0 +1,12 @@
+<div id="showPanel" *ngIf="book">
+    <p>
+        <strong>Title:</strong>
+        {{book.title}}
+    </p>
+
+    <p>
+        <strong>Author:</strong>
+        {{book.author}}
+    </p>
+    <a href="#" (click)="edit()">Edit</a> | <a href="#" (click)="back()">Back</a>
+</div>
