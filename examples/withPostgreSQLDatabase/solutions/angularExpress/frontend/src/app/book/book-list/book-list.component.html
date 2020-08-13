@@ -1,0 +1,23 @@
+<h1>Books</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th id="titleHeader">Title</th>
+      <th id="authorHeader">Author</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let book of books">
+      <td>{{book.title}}</td>
+      <td>{{book.author}}</td>
+      <td><a href="#" (click)="show(book.id)">Show</a></td>
+      <td><a href="#" (click)="edit(book.id)">Edit</a></td>
+      <td><a href="#" (click)="destroy(book.id)">Destroy</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<a href="#" (click)="newBook()">New Book</a>
