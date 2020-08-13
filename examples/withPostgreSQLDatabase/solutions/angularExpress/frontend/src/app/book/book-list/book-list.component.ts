@@ -27,14 +27,8 @@ export class BookListComponent implements OnInit {
       this.service.getAll().subscribe(result => {
         // @ts-ignore
         this.books = result.data.findAllBooks;
-        if (clearMessage) {
-          // this.service.clearMessage();
-        }
     }, error => {
         console.log(error);
-        if (clearMessage) {
-         // this.service.clearMessage();
-        }
     });
 
   }
