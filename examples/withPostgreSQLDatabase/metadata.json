@@ -1,0 +1,43 @@
+{
+    "team" : {
+        "id" : "com.example.team",
+        "description" : "Software team of Example.com"
+    },
+    "project" : {
+        "id" : "exampleProject3",
+        "description" : "Example project 3"
+    },
+    "entities" : [
+        {
+            "name" : "book",
+            "labels" : {
+                "singular" : "Book",
+                "plural" : "Books"
+            },
+            "id" : "id",
+            "properties" : [
+                {
+                    "name" : "title",
+                    "label" : "Title",
+                    "type" : "string"
+                },
+                {
+                    "name" : "author",
+                    "label" : "Author",
+                    "type" : "string"
+                }
+            ]
+        }
+    ],
+    "resources" : {
+        "database" : {
+            "tags": [
+                "postgresql"
+            ],
+            "name": "books",
+            "username": "postgres",
+            "password": "123123",
+            "port": 5432
+        }
+    }
+}

@@ -1,0 +1,39 @@
+import {Args, Mutation, Query, Resolver} from '@nestjs/graphql';
+import { {{Entity singular name}} } from './model/{{Entity singular name}}.entity';
+import { {{Entity singular name}}Type } from './dto/{{Entity singular name}}.dto';
+import { {{Entity singular name}}Service } from './{{Entity singular name}}.service';
+
+@Resolver('{{Entity singular name}}')
+export class {{Entity singular name}}Resolver {
+    constructor(private readonly {{Entity singular name}}Service: {{Entity singular name}}Service) {}
+
+    @Query(() => [{{Entity singular name}}Type])
+    async getAll{{Entity singular name}}(): Promise<{{Entity singular name}}Type[]> {
+        return await this.{{Entity  singular name}}Service.findAll();
+    }
+
+    @Query(() => {{Entity singular name}}Type)
+    async getOne{{Entity singular name}}(@Args('id') id: number) {
+        return await this.{{Entity singular name}}Service.find(id);
+    }
+
+    @Mutation(() => {{Entity singular name}}Type)
+    async create{{Entity singular name}}(@Args('input') input: Create{{Entity singular name}}Input): Promise<{{Entity singular name}}> {
+        return await this.{{Entity singular name}}Service.create(input);
+    }
+
+    @Mutation(() => {{Entity singular name}}Type)
+    async update{{Entity singular name}}(
+        @Args('input') input: Update{{Entity singular name}}Input): Promise<{{Entity singular name}}> {
+        return await this.{{Entity singular name}}Service.update(input);
+    }
+
+    @Mutation(() => {{Entity singular name}})
+    async delete{{Entity singular name}}(@Args('id') id: number): Promise<number> {
+        return await this.{{Entity singular name}}Service.delete(id);
+    }
+
+
+}
+
+

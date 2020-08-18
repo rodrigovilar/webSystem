@@ -1,0 +1,29 @@
+import {Inject, Injectable} from '@nestjs/common';
+import {InjectRepository} from '@nestjs/typeorm';
+import { {{Entity singular name}} } from './model/{{Entity singular name}}.entity';
+
+@Injectable()
+export class {{[Entity singular name}}Service {
+    constructor(@Inject('{{Entity singular name}}_REPOSITORY') private readonly {{Entity singular name}}Repository: typeof {{Entity singular name}}) {}
+
+    findAll{{[Entity plural name}}(): Promise<{{[Entity singular name}}[]> {
+       return this.{{Entity singular name}}Repository.findAll<{{Entity singular name}}>();
+    }
+
+    find{{Entity singular name}}(id): Promise<{{Entity singular name}}> {
+       return this.{{Entity singular name}}Repository.findOne({where: {id}});
+    }
+
+    create{{Entity singular name}}(data): Promise<{{Entity singular name}}> {
+        return this.{{Entity singular name}}Repository.create(data);
+    }
+
+    update{{Entity singular name}}(data): Promise<{{Entity singular name}}> {
+        this.{{Entity singular name}}Repository.update<Book>(data, { where: {id: data.id}});
+        return this.{{Entity singular name}}Repository.findOne({where: {id: data.id}});
+    }
+
+    delete{{Entity singular name}}(id): Promise<number> {
+        return this.{{Entity singular name}}Repository.destroy({where: {id} });
+    }
+}
